@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+//This line added to check commit in github
+
 @Entity
 @Table(name = "ADDRESS_OTO")
 public class Address {
