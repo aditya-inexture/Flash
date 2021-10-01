@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 30 Sep, 2021 12:27:33 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.inx.model.Question" table="QUESTION_SET">
+        <id name="qid" type="int">
+            <column name="QID" />
+            <generator class="increment" />
+        </id>
+        
+        <property name="question" type="java.lang.String">
+            <column name="QUESTION" />
+        </property>
+        
+        <set name="answers" inverse="false" table="ANSWERS_SET" lazy="true">
+            <key>
+                <column name="QID" />
+            </key>
+            <element type="java.lang.String">
+                <column name="ANSWERS" />
+            </element>
+        </set>
+        
+    </class>
+</hibernate-mapping>

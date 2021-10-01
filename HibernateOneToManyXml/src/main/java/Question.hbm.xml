@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 30 Sep, 2021 12:27:33 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.inx.model.Question" table="QUESTION_ONE_TO_MANY">
+        <id name="qid" type="int">
+            <column name="QID" />
+            <generator class="increment" />
+        </id>
+        
+        <property name="question" type="java.lang.String">
+            <column name="QUESTION" />
+        </property>
+        
+        <list name="answers" lazy="true" cascade="all" >
+            <key>
+                <column name="QID" />
+            </key>
+            <index>
+            	<column name="type"></column>
+            </index>
+            <one-to-many class="com.inx.model.Answer"/>
+        </list>
+        
+    </class>
+    
+    <class name="com.inx.model.Answer" table="ANSWERS_ONE_TO_MANY">
+    	<id name="id">
+    		<column name="AID"></column>
+    		<generator class="increment" />
+    	</id>
+    	<property name="answerName"></property>
+    	<property name="postedBy"></property>
+    </class>
+    
+</hibernate-mapping>

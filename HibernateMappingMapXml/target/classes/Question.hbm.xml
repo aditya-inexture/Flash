@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 30 Sep, 2021 1:52:54 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.inx.model.Question" table="QUESTION_MAP">
+        
+        <id name="qid" type="int">
+            <column name="QID" />
+            <generator class="native" />
+        </id>
+        
+        <property name="question" type="java.lang.String">
+            <column name="QUESTION" />
+        </property>
+        
+        <property name="username" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+        
+        <map name="answers" table="ANSWERS_MAP" cascade="all">
+            <key>
+                <column name="QUESTION_ID" />
+            </key>
+            <index column="username" type="java.lang.String"></index>
+            <element type="java.lang.String">
+                <column name="ANSWERS" />
+            </element>
+        </map>
+    </class>
+</hibernate-mapping>
